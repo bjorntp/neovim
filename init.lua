@@ -1,8 +1,3 @@
--- Config import
--- local plugins = require("plugins")
--- local lsp = require("lsp")
--- local combined_plugins = vim.tbl_deep_extend("force", plugins, lsp)
-
 -- Lazy plugin manager
 require("lazy_init")
 require("lazy").setup(require("plugins"))
@@ -13,5 +8,9 @@ require("keymappings")
 -- lua/options.lua
 require("options")
 
+-- snippets
+require("luasnip.loaders.from_lua").load({ paths = "~/.config/nvim/lua/my_snippets/" })
+require("my_snippets.dates")
+
 -- theme
-vim.cmd.colorscheme("catppuccin")
+vim.cmd.colorscheme("gruvbox")
