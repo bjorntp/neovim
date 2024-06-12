@@ -39,7 +39,7 @@ vim.keymap.set("n", "<leader>s.", builtin.oldfiles, { desc = '[S]earch Recent Fi
 vim.keymap.set("n", "<leader><leader>", builtin.buffers, { desc = "[ ] Find existing buffers" })
 
 -- Formatting
-vim.keymap.set({ "n", "v" }, "<leader>l", function()
+vim.keymap.set({ "n", "v" }, "<leader>ff", function()
 	require("conform").format({
 		lsp_fallback = true,
 		async = false,
