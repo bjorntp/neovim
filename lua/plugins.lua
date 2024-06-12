@@ -281,6 +281,7 @@ return {
 				bashls = {},
 				pyright = {},
 				java_language_server = {},
+				marksman = {},
 				-- digestif = {},
 				--
 				-- Some languages (like typescript) have entire language plugins that can be useful:
@@ -364,12 +365,26 @@ return {
 			end,
 			formatters_by_ft = {
 				lua = { "stylua" },
-				-- Conform can also run multiple formatters sequentially
-				-- python = { "isort", "black" },
-				--
-				-- You can use a sub-list to tell conform to run *until* a formatter
-				-- is found.
-				-- javascript = { { "prettierd", "prettier" } },
+				svelte = { { "prettierd", "prettier" } },
+				javascript = { { "prettierd", "prettier" } },
+				typescript = { { "prettierd", "prettier" } },
+				javascriptreact = { { "prettierd", "prettier" } },
+				typescriptreact = { { "prettierd", "prettier" } },
+				json = { { "prettierd", "prettier" } },
+				graphql = { { "prettierd", "prettier" } },
+				java = { "google-java-format" },
+				kotlin = { "ktlint" },
+				ruby = { "standardrb" },
+				markdown = { { "prettierd", "prettier" } },
+				erb = { "htmlbeautifier" },
+				html = { "htmlbeautifier" },
+				bash = { "beautysh" },
+				proto = { "buf" },
+				rust = { "rustfmt" },
+				yaml = { "yamlfix" },
+				toml = { "taplo" },
+				css = { { "prettierd", "prettier" } },
+				scss = { { "prettierd", "prettier" } },
 			},
 		},
 	},
