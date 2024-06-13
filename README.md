@@ -1,2 +1,2 @@
 # Neovim
-My Neovim config. 
+My Neovim config. Lots of copy paste from LazyVim, LunarVim and Kickstart.
