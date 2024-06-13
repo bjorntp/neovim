@@ -40,9 +40,11 @@ return {
 		end,
 	},
 
+	-- Fixes tabs
 	{
 		"tpope/vim-sleuth",
 	},
+
 	-- Commenting with gc
 	{
 		"numToStr/Comment.nvim",
@@ -92,7 +94,7 @@ return {
 	require("plugins.lsplint"),
 
 	-- Dashboard
-	require("plugins.dashboard"),
+	require("plugins.alpha"),
 
 	-- Debug
 	require("plugins.debug"),
