@@ -22,6 +22,7 @@ vim.api.nvim_set_keymap("v", "<A-k>", ":m '<-2<cr>gv-gv", { noremap = true })
 
 vim.api.nvim_set_keymap("v", "<", "<gv", { noremap = true })
 vim.api.nvim_set_keymap("v", ">", ">gv", { noremap = true })
+
 -- File explorer
 vim.keymap.set("n", "<leader>e", ":Neotree<CR>", { desc = "Explore" })
 

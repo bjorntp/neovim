@@ -28,8 +28,8 @@ return {
 						{
 							-- icon = " ",
 							icon_hl = "Title",
-							desc = "Find File           ",
-							desc_hl = "String",
+							desc = "Find File",
+							-- desc_hl = "String",
 							key = "f",
 							keymap = "",
 							key_hl = "Number",
