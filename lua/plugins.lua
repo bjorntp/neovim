@@ -3,11 +3,16 @@ return {
 	-- Theme
 	{ "catppuccin/nvim", name = "catppuccin", priority = 1000 },
 
+	{
+		"nvim-lualine/lualine.nvim",
+		dependencies = { "nvim-tree/nvim-web-devicons" },
+		config = function()
+			require("lualine").setup()
+		end,
+	},
+
 	-- LaTeX
 	{ "lervag/vimtex" },
-
-	-- Search among files, help, keymaps with more
-	require("plugins.telescope"),
 
 	-- Keymapping screen
 	{
@@ -86,4 +91,7 @@ return {
 
 	-- Debug
 	require("plugins.debug"),
+
+	-- Search among files, help, keymaps with more
+	require("plugins.telescope"),
 }
