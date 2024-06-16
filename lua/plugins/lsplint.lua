@@ -185,6 +185,8 @@ return {
 				toml = { "taplo" },
 				css = { { "prettierd", "prettier" } },
 				scss = { { "prettierd", "prettier" } },
+				c = { "clang_format" },
+				cpp = { "clang_format" },
 			},
 		},
 	},
