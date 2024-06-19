@@ -107,6 +107,8 @@ return {
 				java_language_server = {},
 				marksman = {},
 				tsserver = {},
+				rust_analyzer = {},
+				texlab = {},
 
 				lua_ls = {
 					settings = {

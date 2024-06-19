@@ -37,6 +37,7 @@ return {
 				-- Update this to ensure that you have the debuggers for the langs you want
 				"delve",
 				"debugpy",
+				"cpptools",
 			},
 		})
 
@@ -51,25 +52,25 @@ return {
 		end, { desc = "Debug: Set Breakpoint" })
 
 		-- Dap UI setup
-		-- For more information, see |:help nvim-dap-ui|
+		-- -- For more information, see |:help nvim-dap-ui|
 		dapui.setup({
-			-- Set icons to characters that are more likely to work in every terminal.
-			--    Feel free to remove or use ones that you like more! :)
-			--    Don't feel like these are good choices.
-			icons = { expanded = "▾", collapsed = "▸", current_frame = "*" },
-			controls = {
-				icons = {
-					pause = "⏸",
-					play = "▶",
-					step_into = "⏎",
-					step_over = "⏭",
-					step_out = "⏮",
-					step_back = "b",
-					run_last = "▶▶",
-					terminate = "⏹",
-					disconnect = "⏏",
-				},
-			},
+			-- 	-- Set icons to characters that are more likely to work in every terminal.
+			-- 	--    Feel free to remove or use ones that you like more! :)
+			-- 	--    Don't feel like these are good choices.
+			-- 	icons = { expanded = "▾", collapsed = "▸", current_frame = "*" },
+			-- 	controls = {
+			-- 		icons = {
+			-- 			pause = "⏸",
+			-- 			play = "▶",
+			-- 			step_into = "⏎",
+			-- 			step_over = "⏭",
+			-- 			step_out = "⏮",
+			-- 			step_back = "b",
+			-- 			run_last = "▶▶",
+			-- 			terminate = "⏹",
+			-- 			disconnect = "⏏",
+			-- 		},
+			-- 	},
 		})
 
 		-- Toggle to see last session result. Without this, you can't see session output in case of unhandled exception.
@@ -92,18 +93,42 @@ return {
 		dap.adapters.cppdbg = {
 			id = "cppdbg",
 			type = "executable",
-			command = "/home/bjorn/.local/dap/cpptools/extension/debugAdapters/bin/OpenDebugAD7",
+			command = "/home/bjorn/.local/share/nvim/mason/bin/OpenDebugAD7",
 		}
+		-- Function to compile the code
+
+		local function compile_program()
+			-- Construct the compile command
+			local compile_cmd = "g++ -g " .. vim.fn.expand("%:p") .. " -o " .. vim.fn.getcwd() .. "/a.out"
+			-- Print the command to ensure it's correct (optional)
+			print("Compiling with command: " .. compile_cmd)
+			-- Execute the compile command
+			local result = os.execute(compile_cmd)
+			-- Check if compilation was successful
+			if result ~= 0 then
+				print("Compilation failed")
+				return nil
+			end
+			-- Return the path to the output file
+			return vim.fn.getcwd() .. "/a.out"
+		end
 		dap.configurations.cpp = {
 			{
 				name = "Launch file",
 				type = "cppdbg",
 				request = "launch",
 				program = function()
-					return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/", "file")
+					local program_path = compile_program()
+					if not program_path then
+						print("Program compilation failed. Debug session aborted.")
+						return nil
+					end
+					return program_path
 				end,
 				cwd = "${workspaceFolder}",
 				stopAtEntry = true,
+				MIMode = "gdb",
+				miDebuggerPath = "/usr/bin/gdb",
 			},
 			{
 				name = "Attach to gdbserver :1234",

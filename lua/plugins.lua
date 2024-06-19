@@ -89,6 +89,19 @@ return {
 		},
 	},
 
+	-- Todo och andra kommentarer
+	{
+		"folke/todo-comments.nvim",
+		dependencies = { "nvim-lua/plenary.nvim" },
+	},
+
+	-- Navigering
+	{
+		"ggandor/leap.nvim",
+		config = function()
+			require("leap").create_default_mappings()
+		end,
+	},
 	-- LSP, linting, completion and more
 	require("plugins.lsplint"),
 
