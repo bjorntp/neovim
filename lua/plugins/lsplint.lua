@@ -247,6 +247,11 @@ return {
 					["<Tab>"] = cmp.mapping.select_next_item(),
 					["<S-Tab>"] = cmp.mapping.select_prev_item(),
 
+					-- Traditional vim shortcuts with completion
+					["<S-j>"] = cmp.mapping.select_next_item(),
+					["<S-k>"] = cmp.mapping.select_prev_item(),
+					["<S-l>"] = cmp.mapping.confirm({ select = true }),
+
 					["<C-Space>"] = cmp.mapping.complete({}),
 
 					["<C-l>"] = cmp.mapping(function()
