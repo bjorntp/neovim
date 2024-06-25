@@ -1,9 +1,9 @@
 -- Space as leader
 vim.g.mapleader = " "
-vim.keymap.set("n", "<leader>q", "<cmd>confirm q<CR>", { desc = "Force quit" })
-vim.keymap.set("n", "<leader>w", ":w!<CR>", { desc = "Save" })
+vim.keymap.set("n", "<leader>q", "<cmd>confirm q<CR>", { desc = "[Q]uit " })
+vim.keymap.set("n", "<leader>w", ":w!<CR>", { desc = "[W]rite" })
 
--- Soft move in normal and visual mode
+-- Always use soft move in normal and visual mode
 vim.api.nvim_set_keymap("n", "k", "gk", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "j", "gj", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("v", "j", "gj", { noremap = true, silent = true })
@@ -37,10 +37,10 @@ vim.keymap.set("n", "<leader>s.", builtin.oldfiles, { desc = '[S]earch Recent Fi
 vim.keymap.set("n", "<leader><leader>", builtin.buffers, { desc = "[ ] Find existing buffers" })
 
 -- Formatting
-vim.keymap.set({ "n", "v" }, "<leader>ff", function()
+vim.keymap.set({ "n", "v" }, "<leader>cf", function()
 	require("conform").format({
 		lsp_fallback = true,
 		async = false,
 		timeout_ms = 500,
 	})
-end, { desc = "Format file or range (in visual mode)" })
+end, { desc = "[F]ormat file or range (in visual mode)" })
