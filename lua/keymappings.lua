@@ -1,10 +1,7 @@
 -- Space as leader
 vim.g.mapleader = " "
-vim.keymap.set("n", "<leader>qq", ":q!<CR>", { desc = "Force quit" })
-vim.keymap.set("n", "<leader>qa", ":qa!<CR>", { desc = "Force quit all" })
-vim.keymap.set("n", "<leader>qw", ":wq<CR>", { desc = "Save and quit" })
-vim.keymap.set("n", "<leader>qc", "<ESC>", { desc = "Cancel" })
-vim.keymap.set("n", "<leader>w", ":w<CR>", { desc = "Save" })
+vim.keymap.set("n", "<leader>q", "<cmd>confirm q<CR>", { desc = "Force quit" })
+vim.keymap.set("n", "<leader>w", ":w!<CR>", { desc = "Save" })
 
 -- Soft move in normal and visual mode
 vim.api.nvim_set_keymap("n", "k", "gk", { noremap = true, silent = true })
