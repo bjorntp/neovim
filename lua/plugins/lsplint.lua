@@ -20,30 +20,31 @@ return {
 				group = vim.api.nvim_create_augroup("lsp-attach", { clear = true }),
 				callback = function(event)
 					local map = function(keys, func, desc)
-						vim.keymap.set("n", keys, func, { buffer = event.buf, desc = "LSP: " .. desc })
+						vim.keymap.set("n", keys, func, { buffer = event.buf, desc = desc })
+						-- vim.keymap.set("n", keys, func, { buffer = event.buf, desc = "LSP: " .. desc })
 					end
 
 					-- Jump to the definition of the word under your cursor.
-					map("gd", require("telescope.builtin").lsp_definitions, "[G]oto [D]efinition")
+					map("gd", require("telescope.builtin").lsp_definitions, "Goto Definition")
 
 					-- Find references for the word under your cursor.
-					map("gr", require("telescope.builtin").lsp_references, "[G]oto [R]eferences")
+					map("gr", require("telescope.builtin").lsp_references, "Goto References")
 
 					-- Jump to the implementation of the word under your cursor.
-					map("gI", require("telescope.builtin").lsp_implementations, "[G]oto [I]mplementation")
+					map("gI", require("telescope.builtin").lsp_implementations, "Goto Implementation")
 
 					-- Jump to the type of the word under your cursor.
-					map("<leader>D", require("telescope.builtin").lsp_type_definitions, "Type [D]efinition")
+					map("<leader>D", require("telescope.builtin").lsp_type_definitions, "Type Definition")
 
 					-- Fuzzy find all the symbols in your current document.
-					map("<leader>cs", require("telescope.builtin").lsp_document_symbols, "[D]ocument [S]ymbols")
+					map("<leader>cs", require("telescope.builtin").lsp_document_symbols, "Document Symbols")
 
 					-- Rename the variable under your cursor.
-					map("<leader>cr", vim.lsp.buf.rename, "[R]e[n]ame")
+					map("<leader>cr", vim.lsp.buf.rename, "Rename")
 
 					-- Execute a code action, usually your cursor needs to be on top of an error
 					-- or a suggestion from your LSP for this to activate.
-					map("<leader>ca", vim.lsp.buf.code_action, "[C]ode [A]ction")
+					map("<leader>ca", vim.lsp.buf.code_action, "Code Action")
 
 					-- Opens a popup that displays documentation about the word under your cursor
 					--  See `:help K` for why this keymap.
@@ -51,7 +52,7 @@ return {
 
 					-- WARN: This is not Goto Definition, this is Goto Declaration.
 					--  For example, in C this would take you to the header.
-					map("gD", vim.lsp.buf.declaration, "[G]oto [D]eclaration")
+					map("gD", vim.lsp.buf.declaration, "Goto Declaration")
 
 					local client = vim.lsp.get_client_by_id(event.data.client_id)
 					if client and client.server_capabilities.documentHighlightProvider then
@@ -82,11 +83,11 @@ return {
 					-- code, if the language server you are using supports them
 					--
 					-- This may be unwanted, since they displace some of your code
-					if client and client.server_capabilities.inlayHintProvider and vim.lsp.inlay_hint then
-						map("<leader>th", function()
-							vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
-						end, "[T]oggle Inlay [H]ints")
-					end
+					-- if client and client.server_capabilities.inlayHintProvider and vim.lsp.inlay_hint then
+					-- 	map("<leader>th", function()
+					-- 		vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
+					-- 	end, "[T]oggle Inlay [H]ints")
+					-- end
 				end,
 			})
 
