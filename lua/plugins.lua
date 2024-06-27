@@ -61,19 +61,19 @@ return {
 					filtered_items = {
 						hide_dotfiles = false,
 					},
-					window = {
-						mappings = {
-							["<CR>"] = "open_nofocus",
-						},
-					},
-					commands = {
-						open_nofocus = function(state)
-							require("neo-tree.sources.filesystem.commands").open(state)
-							vim.schedule(function()
-								vim.cmd([[Neotree close]])
-							end)
-						end,
-					},
+					-- window = {
+					-- 	mappings = {
+					-- 		["<CR>"] = "open_nofocus",
+					-- 	},
+					-- },
+					-- commands = {
+					-- 	open_nofocus = function(state)
+					-- 		require("neo-tree.sources.filesystem.commands").open(state)
+					-- 		vim.schedule(function()
+					-- 			vim.cmd([[Neotree close]])
+					-- 		end)
+					-- 	end,
+					-- },
 				},
 			})
 		end,
