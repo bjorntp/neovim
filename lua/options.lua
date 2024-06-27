@@ -1,6 +1,6 @@
 -- Space as leader key
-vim.g.mapleader = ' '
-vim.g.mapllocalleader = ' '
+vim.g.mapleader = " "
+vim.g.mapllocalleader = " "
 
 -- Set tab width to 2 spaces
 vim.opt.tabstop = 2
@@ -34,4 +34,3 @@ vim.opt.cursorline = true
 vim.opt.scrolloff = 10
 
 vim.g.have_nerd_font = true
-

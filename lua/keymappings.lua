@@ -1,27 +1,27 @@
 -- Space as leader
 vim.g.mapleader = " "
-vim.keymap.set("n", "<leader>q", "<cmd>confirm q<CR>", { desc = "Quit " })
-vim.keymap.set("n", "<leader>w", ":w!<CR>", { desc = "Write" })
+vim.keymap.set("n", "<leader>q", "<cmd>confirm q<CR>", { desc = "Quit ", silent = true })
+vim.keymap.set("n", "<leader>w", ":w!<CR>", { desc = "Write", silent = true })
 
 -- Always use soft move in normal and visual mode
-vim.api.nvim_set_keymap("n", "k", "gk", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "j", "gj", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("v", "j", "gj", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("v", "k", "gk", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "k", "gk", { noremap = true, silent = true, silent = true })
+vim.api.nvim_set_keymap("n", "j", "gj", { noremap = true, silent = true, silent = true })
+vim.api.nvim_set_keymap("v", "j", "gj", { noremap = true, silent = true, silent = true })
+vim.api.nvim_set_keymap("v", "k", "gk", { noremap = true, silent = true, silent = true })
 
 -- Move row up and down in normal, insert and visual mode.
-vim.api.nvim_set_keymap("n", "<A-j>", ":m .+1<CR>==", { noremap = true })
-vim.api.nvim_set_keymap("n", "<A-k>", ":m .-2<CR>==", { noremap = true })
-vim.api.nvim_set_keymap("i", "<A-k>", "<ESC>:m .-2<CR>==gi", { noremap = true })
-vim.api.nvim_set_keymap("i", "<A-j>", "<ESC>:m .+1<CR>==gi", { noremap = true })
-vim.api.nvim_set_keymap("v", "<A-j>", ":m '>+1<cr>gv-gv", { noremap = true })
-vim.api.nvim_set_keymap("v", "<A-k>", ":m '<-2<cr>gv-gv", { noremap = true })
+vim.api.nvim_set_keymap("n", "<A-j>", ":m .+1<CR>==", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<A-k>", ":m .-2<CR>==", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("i", "<A-k>", "<ESC>:m .-2<CR>==gi", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("i", "<A-j>", "<ESC>:m .+1<CR>==gi", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("v", "<A-j>", ":m '>+1<cr>gv-gv", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("v", "<A-k>", ":m '<-2<cr>gv-gv", { noremap = true, silent = true })
 
-vim.api.nvim_set_keymap("v", "<", "<gv", { noremap = true })
-vim.api.nvim_set_keymap("v", ">", ">gv", { noremap = true })
+vim.api.nvim_set_keymap("v", "<", "<gv", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("v", ">", ">gv", { noremap = true, silent = true })
 
 -- File explorer
-vim.keymap.set("n", "<leader>e", ":Neotree<CR>", { desc = "Explore" })
+vim.keymap.set("n", "<leader>e", ":Neotree<CR>", { desc = "Explore", silent = true })
 
 -- Telescope/search mappings
 local builtin = require("telescope.builtin")
@@ -43,4 +43,4 @@ vim.keymap.set({ "n", "v" }, "<leader>cf", function()
 		async = false,
 		timeout_ms = 500,
 	})
-end, { desc = "Format file or range (in visual mode)" })
+end, { desc = "Format file or range (in visual mode)", silent = true })
