@@ -101,7 +101,7 @@ return {
 				java_language_server = {},
 				marksman = {},
 				tsserver = {},
-				-- rust_analyzer = {},
+				rust_analyzer = {},
 				texlab = {},
 
 				lua_ls = {
@@ -176,7 +176,7 @@ return {
 				html = { "htmlbeautifier" },
 				bash = { "beautysh" },
 				proto = { "buf" },
-				-- rust = { "rustfmt" },
+				rust = { "rustfmt" },
 				yaml = { "yamlfix" },
 				toml = { "taplo" },
 				css = { { "prettierd", "prettier" } },
