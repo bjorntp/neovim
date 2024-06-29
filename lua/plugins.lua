@@ -43,6 +43,12 @@ return {
 	-- Commenting with gc
 	{
 		"numToStr/Comment.nvim",
+		opts = {
+			toggler = {
+				line = "gc",
+				block = "gb",
+			},
+		},
 	},
 
 	-- File explorer
