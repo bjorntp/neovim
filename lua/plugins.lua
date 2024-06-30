@@ -1,131 +1,34 @@
 return {
 
 	-- Theme
-	{
-		"catppuccin/nvim",
-		name = "catppuccin",
-		priority = 1000,
-	},
+	require("plugins.catppuccin"),
 
 	-- Lualine as statusbar
-	{
-		"nvim-lualine/lualine.nvim",
-		dependencies = { "nvim-tree/nvim-web-devicons" },
-
-		config = function()
-			require("lualine").setup()
-		end,
-	},
+	require("plugins.lualine"),
 
 	-- LaTeX
-	{ "lervag/vimtex" },
+	require("plugins.vimtex"),
 
 	-- Keymapping screen
-	{
-		"folke/which-key.nvim",
-		event = "VimEnter", -- Sets the loading event to 'VimEnter'
-		config = function() -- This is the function that runs, AFTER loading
-			require("which-key").setup()
-
-			-- Document existing key chains
-			require("which-key").register({
-				["<leader>c"] = { name = "Code", _ = "which_key_ignore" },
-				["<leader>s"] = { name = "Search", _ = "which_key_ignore" },
-			})
-		end,
-	},
-
-	-- Fixes tabs
-	{
-		"tpope/vim-sleuth",
-	},
+	require("plugins.whichkey"),
 
 	-- Commenting with gc
-	{
-		"numToStr/Comment.nvim",
-		opts = {
-			toggler = {
-				line = "gc",
-				block = "gb",
-			},
-		},
-	},
+	require("plugins.comment"),
 
 	-- File explorer
-	{
-		"nvim-neo-tree/neo-tree.nvim",
-		branch = "v3.x",
-		dependencies = {
-			"nvim-lua/plenary.nvim",
-			"nvim-tree/nvim-web-devicons",
-			"MunifTanjim/nui.nvim",
-		},
-		config = function()
-			require("neo-tree").setup({
-				close_if_last_window = true,
-				filesystem = {
-					filtered_items = {
-						hide_dotfiles = false,
-					},
-					-- window = {
-					-- 	mappings = {
-					-- 		["<CR>"] = "open_nofocus",
-					-- 	},
-					-- },
-					-- commands = {
-					-- 	open_nofocus = function(state)
-					-- 		require("neo-tree.sources.filesystem.commands").open(state)
-					-- 		vim.schedule(function()
-					-- 			vim.cmd([[Neotree close]])
-					-- 		end)
-					-- 	end,
-					-- },
-				},
-			})
-		end,
-	},
+	require("plugins.neotree"),
 
 	-- Autoparing for certain characters
-	{
-		"windwp/nvim-autopairs",
-		event = "InsertEnter",
-		-- Optional dependency
-		dependencies = { "hrsh7th/nvim-cmp" },
-		config = function()
-			require("nvim-autopairs").setup({})
-			-- If you want to automatically add `(` after selecting a function or method
-			local cmp_autopairs = require("nvim-autopairs.completion.cmp")
-			local cmp = require("cmp")
-			cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
-		end,
-	},
+	require("plugins.autopair"),
 
 	-- Blankline
-	{
-		"lukas-reineke/indent-blankline.nvim",
-		main = "ibl",
-		opts = {
-			exclude = {
-				filetypes = {
-					"dashboard",
-				},
-			},
-		},
-	},
+	require("plugins.blankline"),
 
 	-- Todo och andra kommentarer
-	{
-		"folke/todo-comments.nvim",
-		dependencies = { "nvim-lua/plenary.nvim" },
-	},
+	require("plugins.todo"),
 
 	-- Navigering
-	{
-		"ggandor/leap.nvim",
-		config = function()
-			require("leap").create_default_mappings()
-		end,
-	},
+	require("plugins.leap"),
 	-- LSP, linting, completion and more
 	require("plugins.lsplint"),
 
