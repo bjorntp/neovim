@@ -40,4 +40,7 @@ return {
 
 	-- Search among files, help, keymaps with more
 	require("plugins.telescope"),
+
+	-- Noice command line
+	require("plugins.noice"),
 }
