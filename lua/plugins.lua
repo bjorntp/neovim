@@ -1,5 +1,4 @@
 return {
-
 	-- Theme
 	require("plugins.catppuccin"),
 
@@ -27,8 +26,6 @@ return {
 	-- Todo och andra kommentarer
 	require("plugins.todo"),
 
-	-- Navigering
-	require("plugins.leap"),
 	-- LSP, linting, completion and more
 	require("plugins.lsplint"),
 
@@ -43,4 +40,7 @@ return {
 
 	-- Noice command line
 	require("plugins.noice"),
+
+	-- Surround
+	require("plugins.nvim-surround"),
 }
