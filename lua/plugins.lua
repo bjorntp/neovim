@@ -33,7 +33,7 @@ return {
 	require("plugins.alpha"),
 
 	-- Debug
-	require("plugins.debug"),
+	-- require("plugins.debug"),
 
 	-- Search among files, help, keymaps with more
 	require("plugins.telescope"),
