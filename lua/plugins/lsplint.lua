@@ -186,7 +186,6 @@ return {
 			},
 		},
 	},
-
 	-- Autocompletion
 	{
 		"hrsh7th/nvim-cmp",
@@ -221,6 +220,16 @@ return {
 			luasnip.config.setup({})
 
 			cmp.setup({
+				window = {
+					completion = cmp.config.window.bordered({
+						max_width = 40,
+						max_height = 10,
+					}),
+					documentation = cmp.config.window.bordered({
+						max_width = 60,
+						max_height = 20,
+					}),
+				},
 				snippet = {
 					expand = function(args)
 						luasnip.lsp_expand(args.body)
