@@ -41,6 +41,9 @@ return {
 	-- Noice command line
 	require("plugins.noice"),
 
+	-- Treesitter
+	require("plugins.treesitter"),
+
 	-- Surround
 	require("plugins.nvim-surround"),
 }
