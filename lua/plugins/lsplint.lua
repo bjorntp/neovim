@@ -161,17 +161,17 @@ return {
 			end,
 			formatters_by_ft = {
 				lua = { "stylua" },
-				svelte = { { "prettierd", "prettier" } },
-				javascript = { { "prettierd", "prettier" } },
-				typescript = { { "prettierd", "prettier" } },
-				javascriptreact = { { "prettierd", "prettier" } },
-				typescriptreact = { { "prettierd", "prettier" } },
-				json = { { "prettierd", "prettier" } },
-				graphql = { { "prettierd", "prettier" } },
+				svelte = { "prettierd", "prettier" },
+				javascript = { "prettierd", "prettier" },
+				typescript = { "prettierd", "prettier" },
+				javascriptreact = { "prettierd", "prettier" },
+				typescriptreact = { "prettierd", "prettier" },
+				json = { "prettierd", "prettier" },
+				graphql = { "prettierd", "prettier" },
 				java = { "google-java-format" },
 				kotlin = { "ktlint" },
 				ruby = { "standardrb" },
-				markdown = { { "prettierd", "prettier" } },
+				markdown = { "prettierd", "prettier" },
 				erb = { "htmlbeautifier" },
 				html = { "htmlbeautifier" },
 				bash = { "beautysh" },
@@ -179,8 +179,8 @@ return {
 				rust = { "rustfmt" },
 				yaml = { "yamlfix" },
 				toml = { "taplo" },
-				css = { { "prettierd", "prettier" } },
-				scss = { { "prettierd", "prettier" } },
+				css = { "prettierd", "prettier" },
+				scss = { "prettierd", "prettier" },
 				c = { "clang_format" },
 				cpp = { "clang_format" },
 			},
@@ -192,32 +192,32 @@ return {
 		event = "InsertEnter",
 		dependencies = {
 			-- Snippet Engine & its associated nvim-cmp source
-			{
-				"L3MON4D3/LuaSnip",
-				build = (function()
-					if vim.fn.has("win32") == 1 or vim.fn.executable("make") == 0 then
-						return
-					end
-					return "make install_jsregexp"
-				end)(),
-				dependencies = {
-					{
-						"rafamadriz/friendly-snippets",
-						config = function()
-							require("luasnip.loaders.from_vscode").lazy_load()
-						end,
-					},
-				},
-			},
-			"saadparwaiz1/cmp_luasnip",
+			-- {
+			-- 	"L3MON4D3/LuaSnip",
+			-- 	build = (function()
+			-- 		if vim.fn.has("win32") == 1 or vim.fn.executable("make") == 0 then
+			-- 			return
+			-- 		end
+			-- 		return "make install_jsregexp"
+			-- 	end)(),
+			-- 	dependencies = {
+			-- 		{
+			-- 			"rafamadriz/friendly-snippets",
+			-- 			config = function()
+			-- 				require("luasnip.loaders.from_vscode").lazy_load()
+			-- 			end,
+			-- 		},
+			-- 	},
+			-- },
+			-- "saadparwaiz1/cmp_luasnip",
 			"hrsh7th/cmp-nvim-lsp",
 			"hrsh7th/cmp-path",
 		},
 		config = function()
 			-- See `:help cmp`
 			local cmp = require("cmp")
-			local luasnip = require("luasnip")
-			luasnip.config.setup({})
+			-- local luasnip = require("luasnip")
+			-- luasnip.config.setup({})
 
 			cmp.setup({
 				window = {
@@ -232,7 +232,7 @@ return {
 				},
 				snippet = {
 					expand = function(args)
-						luasnip.lsp_expand(args.body)
+						-- luasnip.lsp_expand(args.body)
 					end,
 				},
 				completion = { completeopt = "menu,menuone,noinsert" },
@@ -270,7 +270,7 @@ return {
 				}),
 				sources = {
 					{ name = "nvim_lsp" },
-					{ name = "luasnip" },
+					-- { name = "luasnip" },
 					{ name = "path" },
 				},
 			})
