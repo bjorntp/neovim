@@ -46,4 +46,7 @@ return {
 
 	-- Surround
 	require("plugins.nvim-surround"),
+
+	-- Leap
+	require("plugins.leap"),
 }
