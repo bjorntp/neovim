@@ -34,3 +34,5 @@ vim.opt.cursorline = true
 vim.opt.scrolloff = 10
 
 vim.g.have_nerd_font = true
+
+vim.opt.showtabline = 2

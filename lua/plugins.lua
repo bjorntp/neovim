@@ -49,4 +49,7 @@ return {
 
 	-- Leap
 	require("plugins.leap"),
+
+	-- File explorer
+	require("plugins.ranger"),
 }

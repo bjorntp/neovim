@@ -103,6 +103,8 @@ return {
 				ts_ls = {},
 				rust_analyzer = {},
 				texlab = {},
+				sqlls = {},
+				tailwindcss = {},
 
 				lua_ls = {
 					settings = {
@@ -236,6 +238,7 @@ return {
 					end,
 				},
 				completion = { completeopt = "menu,menuone,noinsert" },
+
 				mapping = cmp.mapping.preset.insert({
 					-- Select the [n]ext item
 					["<C-n>"] = cmp.mapping.select_next_item(),
@@ -246,7 +249,7 @@ return {
 					["<C-b>"] = cmp.mapping.scroll_docs(-4),
 					["<C-f>"] = cmp.mapping.scroll_docs(4),
 
-					["<CR>"] = cmp.mapping.confirm({ select = true }),
+					["<CR>"] = cmp.mapping.confirm({ select = true, behavior = cmp.ConfirmBehavior.Replace }),
 					["<Tab>"] = cmp.mapping.select_next_item(),
 					["<S-Tab>"] = cmp.mapping.select_prev_item(),
 
@@ -284,7 +287,7 @@ return {
 		config = function()
 			local lint = require("lint")
 			lint.linters_by_ft = {
-				markdown = { "markdownlint" },
+				-- markdown = { "markdownlint" },
 			}
 
 			local lint_augroup = vim.api.nvim_create_augroup("lint", { clear = true })
