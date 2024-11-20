@@ -51,5 +51,5 @@ return {
 	require("plugins.leap"),
 
 	-- File explorer
-	require("plugins.ranger"),
+	-- require("plugins.ranger"),
 }

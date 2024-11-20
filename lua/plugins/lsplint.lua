@@ -25,13 +25,13 @@ return {
 					end
 
 					-- Jump to the definition of the word under your cursor.
-					map("gd", require("telescope.builtin").lsp_definitions, "Goto Definition")
+					map("<leader>cgd", require("telescope.builtin").lsp_definitions, "Goto Definition")
 
 					-- Find references for the word under your cursor.
-					map("gr", require("telescope.builtin").lsp_references, "Goto References")
+					map("<leader>cgr", require("telescope.builtin").lsp_references, "Goto References")
 
 					-- Jump to the implementation of the word under your cursor.
-					map("gI", require("telescope.builtin").lsp_implementations, "Goto Implementation")
+					map("<leader>cgI", require("telescope.builtin").lsp_implementations, "Goto Implementation")
 
 					-- Jump to the type of the word under your cursor.
 					map("<leader>D", require("telescope.builtin").lsp_type_definitions, "Type Definition")
@@ -237,7 +237,7 @@ return {
 						luasnip.lsp_expand(args.body)
 					end,
 				},
-				completion = { completeopt = "menu,menuone" },
+				-- completion = { completeopt = "menu,menuone" },
 
 				mapping = cmp.mapping.preset.insert({
 					-- Select the [n]ext item
