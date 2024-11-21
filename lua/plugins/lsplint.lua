@@ -105,6 +105,7 @@ return {
 				texlab = {},
 				sqlls = {},
 				tailwindcss = {},
+				cssls = {},
 
 				lua_ls = {
 					settings = {
