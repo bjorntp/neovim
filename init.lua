@@ -8,5 +8,8 @@ require("keymappings")
 -- lua/options.lua
 require("options")
 
+-- snippets
+require("luasnip.loaders.from_lua").load({ paths = "~/.config/nvim/lua/my_snippets/" })
+
 -- theme
 vim.cmd.colorscheme("catppuccin-mocha")
