@@ -26,11 +26,17 @@ return {
 	-- Todo och andra kommentarer
 	require("plugins.todo"),
 
-	-- LSP,completion and more
-	require("plugins.lsplint"),
+	-- LSP
+	require("plugins.lsp"),
 
 	-- Linting
 	require("plugins.linting"),
+
+	-- Format code
+	require("plugins.autoformat"),
+
+	-- Completion
+	require("plugins.completion"),
 
 	-- Dashboard
 	require("plugins.alpha"),
