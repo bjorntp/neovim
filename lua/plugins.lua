@@ -26,14 +26,14 @@ return {
 	-- Todo och andra kommentarer
 	require("plugins.todo"),
 
-	-- LSP, linting, completion and more
+	-- LSP,completion and more
 	require("plugins.lsplint"),
+
+	-- Linting
+	require("plugins.linting"),
 
 	-- Dashboard
 	require("plugins.alpha"),
-
-	-- Debug
-	-- require("plugins.debug"),
 
 	-- Search among files, help, keymaps with more
 	require("plugins.telescope"),
