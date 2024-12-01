@@ -23,7 +23,7 @@ map("v", "<", "<gv", { noremap = true, silent = true })
 map("v", ">", ">gv", { noremap = true, silent = true })
 
 -- File explorer
-map("n", "<leader>e", ":Neotree<CR>", { desc = "Explore", silent = true })
+map("n", "<leader>e", ":Neotree float<CR>", { desc = "Explore", silent = true })
 
 -- Telescope/search mappings
 local builtin = require("telescope.builtin")
