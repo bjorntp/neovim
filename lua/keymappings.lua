@@ -45,3 +45,5 @@ map({ "n", "v" }, "<leader>cf", function()
 		timeout_ms = 500,
 	})
 end, { desc = "Format file or selection", silent = true })
+
+map("n", "<C-CR>", ":lua vim.lsp.buf.code_action()<CR>", { desc = "Fix" })
