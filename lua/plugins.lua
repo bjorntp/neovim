@@ -1,9 +1,11 @@
 return {
 	-- Theme
-	require("plugins.catppuccin"),
+	require("plugins.colorschemes"),
+
+	require("plugins.dap"),
 
 	-- Lualine as statusbar
-	require("plugins.lualine"),
+	-- require("plugins.lualine"),
 
 	-- LaTeX
 	require("plugins.vimtex"),
