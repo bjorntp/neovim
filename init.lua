@@ -12,4 +12,4 @@ require("options")
 require("luasnip.loaders.from_lua").load({ paths = "~/.config/nvim/lua/my_snippets/" })
 
 -- theme
-vim.cmd.colorscheme("catppuccin-mocha")
+vim.cmd.colorscheme("gruvbox")
