@@ -56,5 +56,5 @@ return {
   require("plugins.nvim-surround"),
 
   -- Leap
-  require("plugins.leap"),
+  -- require("plugins.leap"),
 }
