@@ -106,6 +106,7 @@ return {
 				sqlls = {},
 				tailwindcss = {},
 				cssls = {},
+				kotlin_language_server = {},
 
 				lua_ls = {
 					settings = {
