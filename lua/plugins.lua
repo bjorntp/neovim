@@ -1,60 +1,63 @@
 return {
-  -- Theme
-  require("plugins.colorschemes"),
+	-- Theme
+	require("plugins.colorschemes"),
 
-  require("plugins.dap"),
+	require("plugins.dap"),
 
-  -- Lualine as statusbar
-  -- require("plugins.lualine"),
+	-- Lualine as statusbar
+	-- require("plugins.lualine"),
 
-  -- LaTeX
-  require("plugins.vimtex"),
+	-- LaTeX
+	require("plugins.vimtex"),
 
-  -- Keymapping screen
-  require("plugins.whichkey"),
+	-- Keymapping screen
+	require("plugins.whichkey"),
 
-  -- Commenting with gc
-  require("plugins.comment"),
+	-- Commenting with gc
+	require("plugins.comment"),
 
-  -- File explorer
-  require("plugins.neotree"),
+	-- File explorer
+	require("plugins.neotree"),
 
-  -- Autoparing for certain characters
-  require("plugins.autopair"),
+	-- Autoparing for certain characters
+	require("plugins.autopair"),
 
-  -- Blankline
-  require("plugins.blankline"),
+	-- Blankline
+	require("plugins.blankline"),
 
-  -- Todo och andra kommentarer
-  require("plugins.todo"),
+	-- Todo och andra kommentarer
+	require("plugins.todo"),
 
-  -- LSP
-  require("plugins.lsp"),
+	-- LSP
+	require("plugins.lsp"),
 
-  -- Linting
-  require("plugins.linting"),
+	-- Linting
+	require("plugins.linting"),
 
-  -- Format code
-  require("plugins.autoformat"),
+	-- Format code
+	require("plugins.autoformat"),
 
-  -- Completion
-  require("plugins.completion"),
+	-- Completion
+	require("plugins.completion"),
 
-  -- Dashboard
-  require("plugins.alpha"),
+	-- Dashboard
+	require("plugins.alpha"),
 
-  -- Search among files, help, keymaps with more
-  require("plugins.telescope"),
+	-- Search among files, help, keymaps with more
+	require("plugins.telescope"),
 
-  -- Noice command line
-  require("plugins.noice"),
+	-- Noice command line
+	require("plugins.noice"),
 
-  -- Treesitter
-  require("plugins.treesitter"),
+	-- Treesitter
+	require("plugins.treesitter"),
 
-  -- Surround
-  require("plugins.nvim-surround"),
+	-- Surround
+	require("plugins.nvim-surround"),
 
-  -- Leap
-  -- require("plugins.leap"),
+	-- Markdown
+	require("plugins.markdown"),
+
+	-- Leap
+	require("plugins.leap"),
 }
