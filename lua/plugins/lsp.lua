@@ -107,7 +107,7 @@ return {
 				tailwindcss = {},
 				cssls = {},
 				kotlin_language_server = {},
-
+				hls = {},
 				lua_ls = {
 					settings = {
 						Lua = {
