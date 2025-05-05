@@ -20,13 +20,6 @@ return {
 				end,
 				desc = "Code related",
 			},
-			{
-				"<leader>s",
-				function()
-					require("which-key").show({ global = false })
-				end,
-				desc = "Surround",
-			},
 		},
 	},
 }
