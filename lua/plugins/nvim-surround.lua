@@ -5,16 +5,16 @@ return {
 		event = "VeryLazy",
 		config = function()
 			require("nvim-surround").setup({
-				keymaps = {
-					normal = "<Space>sy",
-					normal_cur = "<Space>sl",
-					normal_line = "<Space>sY",
-					visual = "<Space>sS",
-					visual_line = "<Space>sg",
-					delete = "<Space>sd",
-					change = "<Space>sc",
-					change_line = "<Space>sC",
-				},
+				-- keymaps = {
+				-- 	normal = "<Space>sy",
+				-- 	normal_cur = "<Space>sl",
+				-- 	normal_line = "<Space>sY",
+				-- 	visual = "<Space>sS",
+				-- 	visual_line = "<Space>sg",
+				-- 	delete = "<Space>sd",
+				-- 	change = "<Space>sc",
+				-- 	change_line = "<Space>sC",
+				-- },
 			})
 		end,
 	},
