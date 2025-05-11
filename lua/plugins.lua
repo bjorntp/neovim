@@ -60,4 +60,7 @@ return {
 
 	-- Leap
 	require("plugins.leap"),
+
+	-- Vimwiki
+	require("plugins.vimwiki"),
 }
