@@ -5,6 +5,12 @@ vim.g.mapleader = " "
 map("n", "<leader>q", "<cmd>confirm q<CR>", { desc = "Quit", silent = true })
 map("n", "<leader>w", ":w!<CR>", { desc = "Write", silent = true })
 
+-- Vimwiki
+map("n", "<leader>ss", "<cmd>VimwikiIndex<CR>", { desc = "Go back to index", silent = true })
+map("n", "<leader>sd", "<cmd>VimwikiMakeDiaryNote<CR>", { desc = "", silent = true })
+map("n", "<leader>sn", "<cmd>VimwikiUISelect<CR>", { desc = "", silent = true })
+map("n", "<leader>sh", "<cmd>VimwikiAll2HTML<CR>", { desc = "Render HTML pages", silent = true })
+
 -- Always use soft move in normal and visual mode
 map("n", "k", "gk", { noremap = true, silent = true })
 map("n", "j", "gj", { noremap = true, silent = true })
