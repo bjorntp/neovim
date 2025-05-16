@@ -62,5 +62,8 @@ return {
 	require("plugins.leap"),
 
 	-- Vimwiki
-	require("plugins.vimwiki"),
+	-- require("plugins.vimwiki"),
+
+	-- Obsidian
+	require("plugins.obsidian"),
 }

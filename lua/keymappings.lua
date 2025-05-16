@@ -9,7 +9,11 @@ map("n", "<leader>w", ":w!<CR>", { desc = "Write", silent = true })
 map("n", "<leader>ss", "<cmd>VimwikiIndex<CR>", { desc = "Go back to index", silent = true })
 map("n", "<leader>sd", "<cmd>VimwikiMakeDiaryNote<CR>", { desc = "", silent = true })
 map("n", "<leader>sn", "<cmd>VimwikiUISelect<CR>", { desc = "", silent = true })
-map("n", "<leader>sh", "<cmd>VimwikiAll2HTML<CR>", { desc = "Render HTML pages", silent = true })
+map("n", "<leader>sha", "<cmd>VimwikiAll2HTML<CR>", { desc = "Render HTML pages", silent = true })
+map("n", "<leader>sho", "<cmd>Vimwiki2HTML<CR>", { desc = "Render HTML pages", silent = true })
+
+map("n", "<leader>oo", "<cmd>ObsidianQuickSwitch<CR>", { desc = "Quick file search", silent = true })
+map("n", "<leader>of", "<cmd>ObsidianSearch<CR>", { desc = "Quick keyword search", silent = true })
 
 -- Always use soft move in normal and visual mode
 map("n", "k", "gk", { noremap = true, silent = true })
