@@ -38,4 +38,4 @@ vim.g.have_nerd_font = true
 vim.opt.showtabline = 2
 
 -- Conceallevel
-vim.opt_local.conceallevel = 1
+vim.opt.conceallevel = 2
