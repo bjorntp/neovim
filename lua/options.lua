@@ -10,6 +10,7 @@ vim.opt.expandtab = true
 
 -- Use line numbers
 vim.opt.number = true
+vim.opt.relativenumber = true
 
 -- Use system clip board
 vim.opt.clipboard = "unnamedplus"
