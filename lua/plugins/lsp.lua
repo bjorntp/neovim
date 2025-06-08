@@ -93,6 +93,9 @@ return {
         rust_analyzer = {
           cmd = { "rust-analyzer" },
         },
+        hls = {
+          cmd = { "haskell-language-server-wrapper", "--lsp" },
+        },
         nil_ls = {
           cmd = { "nil" }, -- Nix language server
           settings = {

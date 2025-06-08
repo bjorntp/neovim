@@ -5,7 +5,7 @@ return {
   require("plugins.dap"),
 
   -- Lualine as statusbar
-  require("plugins.lualine"),
+  -- require("plugins.lualine"),
 
   -- LaTeX
   require("plugins.vimtex"),
@@ -25,9 +25,6 @@ return {
   -- Blankline
   require("plugins.blankline"),
 
-  -- Todo och andra kommentarer
-  require("plugins.todo"),
-
   -- LSP
   require("plugins.lsp"),
 
@@ -41,13 +38,10 @@ return {
   require("plugins.completion"),
 
   -- Dashboard
-  require("plugins.alpha"),
+  -- require("plugins.alpha"),
 
   -- Search among files, help, keymaps with more
   require("plugins.telescope"),
-
-  -- Noice command line
-  require("plugins.noice"),
 
   -- Treesitter
   require("plugins.treesitter"),
@@ -58,15 +52,9 @@ return {
   -- Markdown
   require("plugins.markdown"),
 
-  -- Leap
-  require("plugins.leap"),
-
   -- Vimwiki
   -- require("plugins.vimwiki"),
 
   -- Obsidian
   require("plugins.obsidian"),
-
-  -- LazyGit
-  require("plugins.lazygit")
 }

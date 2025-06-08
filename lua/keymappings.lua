@@ -14,6 +14,7 @@ map("n", "<leader>sho", "<cmd>Vimwiki2HTML<CR>", { desc = "Render HTML pages", s
 
 map("n", "<leader>oo", "<cmd>ObsidianQuickSwitch<CR>", { desc = "Quick file search", silent = true })
 map("n", "<leader>of", "<cmd>ObsidianSearch<CR>", { desc = "Quick keyword search", silent = true })
+map("n", "<leader>ob", "<cmd>ObsidianBacklinks<CR>", { desc = "Quick keyword search", silent = true })
 
 -- Always use soft move in normal and visual mode
 map("n", "k", "gk", { noremap = true, silent = true })
@@ -33,7 +34,7 @@ map("v", "<", "<gv", { noremap = true, silent = true })
 map("v", ">", ">gv", { noremap = true, silent = true })
 
 -- File explorer
-map("n", "<leader>e", ":Neotree float<CR>", { desc = "Explore", silent = true })
+map("n", "<leader>e", ":Neotree<CR>", { desc = "Explore", silent = true })
 
 -- Telescope/search mappings
 local builtin = require("telescope.builtin")
@@ -49,11 +50,12 @@ map("n", "<leader>f.", builtin.oldfiles, { desc = 'Search Recent Files ("." for 
 
 -- Formatting
 map({ "n", "v" }, "<leader>cf", function()
-	require("conform").format({
-		lsp_fallback = true,
-		async = false,
-		timeout_ms = 500,
-	})
+  require("conform").format({
+    lsp_fallback = true,
+    async = false,
+    timeout_ms = 500,
+  })
 end, { desc = "Format file or selection", silent = true })
 
 map("n", "<C-CR>", ":lua vim.lsp.buf.code_action()<CR>", { desc = "Fix" })
+map("n", "<C-+>", ":lua vim.diagnostic.open_float()<CR>", { desc = "Float" })
