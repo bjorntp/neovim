@@ -10,6 +10,7 @@ require("options")
 
 -- snippets
 require("luasnip.loaders.from_lua").load({ paths = "~/.config/nvim/lua/my_snippets/" })
+require("my_snippets.dates")
 
 -- theme
 vim.cmd.colorscheme("gruvbox")

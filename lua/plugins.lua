@@ -5,7 +5,7 @@ return {
   require("plugins.dap"),
 
   -- Lualine as statusbar
-  -- require("plugins.lualine"),
+  require("plugins.lualine"),
 
   -- LaTeX
   require("plugins.vimtex"),
@@ -53,8 +53,8 @@ return {
   require("plugins.markdown"),
 
   -- Vimwiki
-  -- require("plugins.vimwiki"),
+  require("plugins.vimwiki"),
 
   -- Obsidian
-  require("plugins.obsidian"),
+  -- require("plugins.obsidian"),
 }

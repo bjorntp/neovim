@@ -16,6 +16,12 @@ map("n", "<leader>oo", "<cmd>ObsidianQuickSwitch<CR>", { desc = "Quick file sear
 map("n", "<leader>of", "<cmd>ObsidianSearch<CR>", { desc = "Quick keyword search", silent = true })
 map("n", "<leader>ob", "<cmd>ObsidianBacklinks<CR>", { desc = "Quick keyword search", silent = true })
 
+map("n", "<leader>sn", "<cmd>VimwikiIndex<CR>", { desc = "Vimwiki go to index" })
+map("n", "<leader>ss", "<cmd>VimwikiUISelect<CR>", { desc = "Vimwiki select wiki" })
+map("n", "<leader>sd", "<cmd>VimwikiMakeDiaryNote<CR>", { desc = "Vimwiki new diary post" })
+map("n", "<leader>si", "<cmd>VimwikiDiaryIndex<CR>", { desc = "Vimwiki diary index" })
+map("n", "<leader>sg", "<cmd>VimwikiDiaryGenerateLinks<CR>", { desc = "Vimwiki generate diary links" })
+
 -- Always use soft move in normal and visual mode
 map("n", "k", "gk", { noremap = true, silent = true })
 map("n", "j", "gj", { noremap = true, silent = true })
