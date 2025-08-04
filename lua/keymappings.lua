@@ -74,3 +74,4 @@ end, { desc = 'Toggle tab line' })
 
 map("n", "<leader>ui", "<cmd>lua vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())<CR>",
   { desc = 'Toggle inlay hints' })
+map("n", "<leader>uw", "<cmd>set wrap!<CR>", { desc = "Set wrap" })

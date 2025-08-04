@@ -2,9 +2,6 @@ return {
   -- Theme
   require("plugins.colorschemes"),
 
-  -- Lualine as statusbar
-  -- require("plugins.lualine"),
-
   -- Autotag
   require("plugins.autotag"),
 
@@ -55,7 +52,4 @@ return {
 
   -- Lazygit
   require("plugins.lazygit")
-
-  -- Obsidian
-  -- require("plugins.obsidian"),
 }

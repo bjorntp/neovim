@@ -66,6 +66,8 @@ return {
         end
       end)
 
+      local home = os.getenv("HOME");
+
       local servers = {
         clangd = {
           cmd = { "clangd" },
@@ -77,19 +79,22 @@ return {
           cmd = { "pyright-langserver", "--stdio" },
         },
         jdtls = {
-          cmd = { "jdtls" },
+          cmd = {
+            "jdtls", -- keep the wrapper
+            "--jvm-arg=-javaagent:" .. home .. "/.local/share/lombok/lombok.jar",
+          },
         },
         ts_ls = {
           cmd = { "typescript-language-server", "--stdio" },
           settings = {
             typescript = {
               inlayHints = {
-                includeInlayParameterNameHints = "literals", -- 'none' | 'literals' | 'all'
-                includeInlayParameterNameHintsWhenArgumentMatchesName = false,
+                includeInlayParameterNameHints = "all", -- 'none' | 'literals' | 'all'
+                includeInlayParameterNameHintsWhenArgumentMatchesName = true,
                 includeInlayVariableTypeHints = true,
                 includeInlayFunctionParameterTypeHints = true,
                 includeInlayVariableTypeHintsWhenTypeMatchesName = true,
-                includeInlayPropertyDeclarationTypeHints = false,
+                includeInlayPropertyDeclarationTypeHints = true,
                 includeInlayFunctionLikeReturnTypeHints = true,
                 includeInlayEnumMemberValueHints = true,
               },
