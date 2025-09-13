@@ -1,6 +1,6 @@
 -- Space as leader key
-vim.g.mapleader = " "
-vim.g.mapllocalleader = " "
+vim.g.mapleader = ' '
+vim.g.mapllocalleader = ' '
 
 -- Set tab width to 2 spaces
 vim.opt.tabstop = 2
@@ -13,7 +13,7 @@ vim.opt.number = true
 vim.opt.relativenumber = true
 
 -- Use system clip board
-vim.opt.clipboard = "unnamedplus"
+vim.opt.clipboard = 'unnamedplus'
 
 -- Nowrap
 vim.opt.wrap = false
@@ -45,10 +45,4 @@ vim.opt.swapfile = false
 
 vim.lsp.inlay_hint.enable(true)
 
--- Autocompile typst file on save
-vim.api.nvim_create_autocmd("BufWritePost", {
-  pattern = "*.typ",
-  callback = function()
-    vim.cmd("silent !typst compile main.typ")
-  end,
-})
+vim.opt.termguicolors = true

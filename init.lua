@@ -1,16 +1,183 @@
--- Lazy plugin manager
-require("lazy_init")
-require("lazy").setup(require("plugins"))
+vim.pack.add({
+	{ src = 'https://github.com/windwp/nvim-ts-autotag' },
+	{ src = 'https://github.com/kylechui/nvim-surround' },
+	{ src = 'https://github.com/nvim-neo-tree/neo-tree.nvim' },
+	{ src = 'https://github.com/windwp/nvim-autopairs' },
+	{ src = 'https://github.com/numToStr/Comment.nvim' },
+	{ src = 'https://github.com/folke/which-key.nvim' },
+	{ src = 'https://github.com/lervag/vimtex' },
+	{ src = 'https://github.com/neovim/nvim-lspconfig' },
+	{ src = 'https://github.com/mfussenegger/nvim-lint' },
+	{ src = 'https://github.com/stevearc/conform.nvim' },
+	{ src = 'https://github.com/nvim-telescope/telescope.nvim' },
+	{ src = 'https://github.com/nvim-treesitter/nvim-treesitter' },
+	{ src = 'https://github.com/nvim-treesitter/nvim-treesitter-context' },
+	{ src = 'https://github.com/akinsho/bufferline.nvim' },
+	{ src = 'https://github.com/hrsh7th/cmp-nvim-lsp' },
+	{ src = 'https://github.com/hrsh7th/nvim-cmp' },
+	{ src = 'https://github.com/L3MON4D3/LuaSnip' },
+	{ src = 'https://github.com/ellisonleao/gruvbox.nvim' },
+
+	-- Dependencies
+	{ src = 'https://github.com/rafamadriz/friendly-snippets' },
+	{ src = 'https://github.com/nvim-telescope/telescope-fzf-native.nvim' },
+	{ src = 'https://github.com/nvim-telescope/telescope-ui-select.nvim' },
+	{ src = 'https://github.com/hrsh7th/nvim-cmp' },
+	{ src = 'https://github.com/nvim-lua/plenary.nvim' },
+	{ src = 'https://github.com/nvim-tree/nvim-web-devicons' },
+	{ src = 'https://github.com/MunifTanjim/nui.nvim' },
+})
+
+vim.lsp.enable({
+	'lua_ls',
+	'clangd',
+	'bashls',
+	'pyright',
+	'jdtls',
+	'ts_ls',
+	'eslint',
+	'tailwindcss',
+	'yamlls',
+	'rust_analyzer',
+	'tinymist',
+	'hls',
+	'nil_ls',
+	'dockerls',
+})
+
+vim.lsp.config('jdtls', {
+	cmd = {
+		'jdtls',
+		'--jvm-arg=-javaagent:' .. os.getenv('HOME') .. '/.local/share/lombok/lombok.jar',
+	},
+})
+
+local inlayHintsSettings = {
+	includeInlayParameterNameHints = 'literals',
+	includeInlayParameterNameHintsWhenArgumentMatchesName = true,
+	includeInlayVariableTypeHints = true,
+	includeInlayFunctionParameterTypeHints = true,
+	includeInlayVariableTypeHintsWhenTypeMatchesName = true,
+	includeInlayPropertyDeclarationTypeHints = true,
+	includeInlayFunctionLikeReturnTypeHints = true,
+	includeInlayEnumMemberValueHints = true,
+}
+
+vim.lsp.config('ts_ls', {
+	cmd = { 'typescript-language-server', '--stdio' },
+	settings = {
+		typescript = {
+			inlayHints = { inlayHintsSettings },
+		},
+		javascript = {
+			inlayHints = { inlayHintsSettings },
+		},
+	},
+})
+
+require('conform').setup({
+	formatters_by_ft = {
+		lua = { 'stylua' },
+		svelte = { 'prettierd', 'prettier' },
+		javascript = { 'prettierd', 'prettier' },
+		typescript = { 'prettierd', 'prettier' },
+		javascriptreact = { 'prettierd', 'prettier' },
+		typescriptreact = { 'prettierd', 'prettier' },
+		json = { 'prettierd', 'prettier' },
+		graphql = { 'prettierd', 'prettier' },
+		java = { 'google-java-format' },
+		kotlin = { 'ktlint' },
+		markdown = { 'prettierd', 'prettier' },
+		bash = { 'beautysh' },
+		rust = { 'rustfmt' },
+		yaml = { 'yamlfix' },
+		css = { 'prettierd', 'prettier' },
+		scss = { 'prettierd', 'prettier' },
+		c = { 'clang_format' },
+		cpp = { 'clang_format' },
+	},
+
+	format_on_save = {
+		lsp_fallback = true,
+		timeout_ms = 500,
+	},
+})
+
+require('neo-tree').setup({
+	filesystem = {
+		follow_current_file = {
+			enabled = true,
+		},
+	},
+})
+
+require('nvim-surround').setup({})
+require('nvim-autopairs').setup({})
+require('bufferline').setup({})
+require('telescope').setup({
+	extensions = {
+		['ui-select'] = {
+			require('telescope.themes').get_dropdown(),
+		},
+	},
+})
+require('nvim-treesitter.configs').setup({
+	ensure_installed = {
+		'lua',
+		'javascript',
+		'typescript',
+		'html',
+		'rust',
+		'css',
+		'scss',
+		'python',
+		'java',
+		'c',
+		'cpp',
+		'tsx',
+	},
+	highlight = {
+		enable = true,
+	},
+	indent = {
+		enable = true,
+	},
+	context_commentstring = {
+		enable = true,
+		enable_autocmd = false,
+	},
+})
+require('nvim-ts-autotag').setup({})
+
+pcall(require('telescope').load_extension, 'fzf')
+pcall(require('telescope').load_extension, 'ui-select')
+
+local cmp = require('cmp')
+
+cmp.setup({
+	sources = {
+		{ name = 'nvim_lsp' },
+		{ name = 'luasnip' },
+	},
+	mapping = {
+		['<CR>'] = cmp.mapping.confirm({ select = false }),
+		['<C-e>'] = cmp.mapping.abort(),
+		['<Up>'] = cmp.mapping.select_prev_item({ behavior = 'select' }),
+		['<Down>'] = cmp.mapping.select_next_item({ behavior = 'select' }),
+		['<S-Tab>'] = cmp.mapping.select_prev_item({ behavior = 'insert' }),
+		['<Tab>'] = cmp.mapping.select_next_item({ behavior = 'insert' }),
+	},
+})
 
 -- lua/keymappings.lua
-require("keymappings")
+require('keymappings')
 
 -- lua/options.lua
-require("options")
+require('options')
 
--- snippets
-require("luasnip.loaders.from_lua").load({ paths = "~/.config/nvim/lua/my_snippets/" })
-require("my_snippets.dates")
+-- Snippets
+require('luasnip.loaders.from_lua').load({ paths = '~/.config/nvim/lua/my_snippets' })
+require('my_snippets.dates')
 
 -- theme
-vim.cmd.colorscheme("gruvbox")
+vim.cmd.colorscheme('gruvbox')
