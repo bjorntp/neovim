@@ -36,7 +36,7 @@ vim.opt.scrolloff = 10
 
 vim.g.have_nerd_font = true
 
-vim.opt.showtabline = 0
+vim.opt.showtabline = 2
 
 -- Conceallevel
 vim.opt.conceallevel = 2

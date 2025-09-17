@@ -12,17 +12,17 @@ vim.pack.add {
 	{ src = 'https://github.com/nvim-telescope/telescope.nvim' },
 	{ src = 'https://github.com/nvim-treesitter/nvim-treesitter' },
 	{ src = 'https://github.com/nvim-treesitter/nvim-treesitter-context' },
-	{ src = 'https://github.com/akinsho/bufferline.nvim' },
 	{ src = 'https://github.com/hrsh7th/cmp-nvim-lsp' },
 	{ src = 'https://github.com/hrsh7th/nvim-cmp' },
 	{ src = 'https://github.com/L3MON4D3/LuaSnip' },
 	{ src = 'https://github.com/ellisonleao/gruvbox.nvim' },
+	{ src = 'https://github.com/nvim-lualine/lualine.nvim' },
+	{ src = 'https://github.com/akinsho/bufferline.nvim' },
 
 	-- Dependencies
 	{ src = 'https://github.com/rafamadriz/friendly-snippets' },
 	{ src = 'https://github.com/nvim-telescope/telescope-fzf-native.nvim' },
 	{ src = 'https://github.com/nvim-telescope/telescope-ui-select.nvim' },
-	{ src = 'https://github.com/hrsh7th/nvim-cmp' },
 	{ src = 'https://github.com/nvim-lua/plenary.nvim' },
 	{ src = 'https://github.com/nvim-tree/nvim-web-devicons' },
 	{ src = 'https://github.com/MunifTanjim/nui.nvim' },
@@ -95,6 +95,7 @@ require('conform').setup {
 		scss = { 'prettierd', 'prettier' },
 		c = { 'clang_format' },
 		cpp = { 'clang_format' },
+		typst = { 'typstfmt' },
 	},
 
 	format_on_save = {
@@ -114,12 +115,27 @@ require('neo-tree').setup {
 			event = 'neo_tree_buffer_enter',
 			handler = function(_) vim.opt_local.relativenumber = true end,
 		},
+		{
+			event = 'neo_tree_popup_input_ready',
+			handler = function()
+				-- enter input popup with normal mode by default.
+				vim.cmd 'stopinsert'
+			end,
+		},
+		{
+			event = 'neo_tree_popup_input_ready',
+			---@param args { bufnr: integer, winid: integer }
+			handler = function(args)
+				-- map <esc> to enter normal mode (by default closes prompt)
+				-- don't forget `opts.buffer` to specify the buffer of the popup.
+				vim.keymap.set('i', '<esc>', vim.cmd.stopinsert, { noremap = true, buffer = args.bufnr })
+			end,
+		},
 	},
 }
 
 require('nvim-surround').setup {}
 require('nvim-autopairs').setup {}
-require('bufferline').setup {}
 require('telescope').setup {
 	extensions = {
 		['ui-select'] = {
@@ -154,6 +170,14 @@ require('nvim-treesitter.configs').setup {
 	},
 }
 require('nvim-ts-autotag').setup {}
+require('bufferline').setup {
+	options = {
+		mode = 'buffers',
+		separator_style = 'slant',
+		show_buffer_close_icons = true,
+		show_close_icons = false,
+	},
+}
 
 pcall(require('telescope').load_extension, 'fzf')
 pcall(require('telescope').load_extension, 'ui-select')
@@ -172,6 +196,17 @@ cmp.setup {
 		['<Down>'] = cmp.mapping.select_next_item { behavior = 'select' },
 		['<S-Tab>'] = cmp.mapping.select_prev_item { behavior = 'insert' },
 		['<Tab>'] = cmp.mapping.select_next_item { behavior = 'insert' },
+	},
+}
+
+require('lualine').setup {
+	sections = {
+		lualine_a = { 'mode' },
+		lualine_b = { 'branch', 'diagnostics' },
+		lualine_c = { 'filename' },
+		lualine_x = {},
+		lualine_y = { 'filetype' },
+		lualine_z = { 'lspstatus' },
 	},
 }
 

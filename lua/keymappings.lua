@@ -56,6 +56,11 @@ map('n', '<A-o>', function() vim.diagnostic.jump { count = -1, float = true } en
 map('n', '<leader>cq', vim.diagnostic.setloclist, { desc = 'Quickfix Diagnostics' })
 map('n', 'K', vim.lsp.buf.hover, { desc = 'Hover Documentation' })
 
+-- Bufferline
+map('n', 'gt', ':BufferLineCycleNext<CR>', { desc = 'Bufferline next', silent = true })
+map('n', 'gT', ':BufferLineCyclePrev<CR>', { desc = 'Bufferline prev', silent = true })
+map('n', 'gw', ':bdelete<CR>', { desc = 'Close buffer', silent = true })
+
 -- Friendly snippets
 
 local ls = require 'luasnip'
@@ -79,8 +84,7 @@ map('n', '<C-CR>', ':lua vim.lsp.buf.code_action()<CR>', { desc = 'Fix' })
 map('n', '<C-+>', ':lua vim.diagnostic.open_float()<CR>', { desc = 'Float' })
 
 map('n', '<leader>ut', function()
-	local current = vim.o.showtabline
-	if current == 2 then
+	if vim.o.showtabline == 2 then
 		vim.o.showtabline = 0
 	else
 		vim.o.showtabline = 2
