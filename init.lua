@@ -1,4 +1,4 @@
-vim.pack.add({
+vim.pack.add {
 	{ src = 'https://github.com/windwp/nvim-ts-autotag' },
 	{ src = 'https://github.com/kylechui/nvim-surround' },
 	{ src = 'https://github.com/nvim-neo-tree/neo-tree.nvim' },
@@ -26,9 +26,9 @@ vim.pack.add({
 	{ src = 'https://github.com/nvim-lua/plenary.nvim' },
 	{ src = 'https://github.com/nvim-tree/nvim-web-devicons' },
 	{ src = 'https://github.com/MunifTanjim/nui.nvim' },
-})
+}
 
-vim.lsp.enable({
+vim.lsp.enable {
 	'lua_ls',
 	'clangd',
 	'bashls',
@@ -43,12 +43,12 @@ vim.lsp.enable({
 	'hls',
 	'nil_ls',
 	'dockerls',
-})
+}
 
 vim.lsp.config('jdtls', {
 	cmd = {
 		'jdtls',
-		'--jvm-arg=-javaagent:' .. os.getenv('HOME') .. '/.local/share/lombok/lombok.jar',
+		'--jvm-arg=-javaagent:' .. os.getenv 'HOME' .. '/.local/share/lombok/lombok.jar',
 	},
 })
 
@@ -75,7 +75,7 @@ vim.lsp.config('ts_ls', {
 	},
 })
 
-require('conform').setup({
+require('conform').setup {
 	formatters_by_ft = {
 		lua = { 'stylua' },
 		svelte = { 'prettierd', 'prettier' },
@@ -101,27 +101,33 @@ require('conform').setup({
 		lsp_fallback = true,
 		timeout_ms = 500,
 	},
-})
+}
 
-require('neo-tree').setup({
+require('neo-tree').setup {
 	filesystem = {
 		follow_current_file = {
 			enabled = true,
 		},
 	},
-})
+	event_handlers = {
+		{
+			event = 'neo_tree_buffer_enter',
+			handler = function(_) vim.opt_local.relativenumber = true end,
+		},
+	},
+}
 
-require('nvim-surround').setup({})
-require('nvim-autopairs').setup({})
-require('bufferline').setup({})
-require('telescope').setup({
+require('nvim-surround').setup {}
+require('nvim-autopairs').setup {}
+require('bufferline').setup {}
+require('telescope').setup {
 	extensions = {
 		['ui-select'] = {
 			require('telescope.themes').get_dropdown(),
 		},
 	},
-})
-require('nvim-treesitter.configs').setup({
+}
+require('nvim-treesitter.configs').setup {
 	ensure_installed = {
 		'lua',
 		'javascript',
@@ -146,38 +152,38 @@ require('nvim-treesitter.configs').setup({
 		enable = true,
 		enable_autocmd = false,
 	},
-})
-require('nvim-ts-autotag').setup({})
+}
+require('nvim-ts-autotag').setup {}
 
 pcall(require('telescope').load_extension, 'fzf')
 pcall(require('telescope').load_extension, 'ui-select')
 
-local cmp = require('cmp')
+local cmp = require 'cmp'
 
-cmp.setup({
+cmp.setup {
 	sources = {
 		{ name = 'nvim_lsp' },
 		{ name = 'luasnip' },
 	},
 	mapping = {
-		['<CR>'] = cmp.mapping.confirm({ select = false }),
+		['<CR>'] = cmp.mapping.confirm { select = false },
 		['<C-e>'] = cmp.mapping.abort(),
-		['<Up>'] = cmp.mapping.select_prev_item({ behavior = 'select' }),
-		['<Down>'] = cmp.mapping.select_next_item({ behavior = 'select' }),
-		['<S-Tab>'] = cmp.mapping.select_prev_item({ behavior = 'insert' }),
-		['<Tab>'] = cmp.mapping.select_next_item({ behavior = 'insert' }),
+		['<Up>'] = cmp.mapping.select_prev_item { behavior = 'select' },
+		['<Down>'] = cmp.mapping.select_next_item { behavior = 'select' },
+		['<S-Tab>'] = cmp.mapping.select_prev_item { behavior = 'insert' },
+		['<Tab>'] = cmp.mapping.select_next_item { behavior = 'insert' },
 	},
-})
+}
 
 -- lua/keymappings.lua
-require('keymappings')
+require 'keymappings'
 
 -- lua/options.lua
-require('options')
+require 'options'
 
 -- Snippets
-require('luasnip.loaders.from_lua').load({ paths = '~/.config/nvim/lua/my_snippets' })
-require('my_snippets.dates')
+require('luasnip.loaders.from_lua').load { paths = '~/.config/nvim/lua/my_snippets' }
+require 'my_snippets.dates'
 
 -- theme
-vim.cmd.colorscheme('gruvbox')
+vim.cmd.colorscheme 'gruvbox'

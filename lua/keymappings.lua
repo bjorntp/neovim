@@ -28,7 +28,7 @@ map('n', '<leader>e', ':Neotree toggle<CR>', { desc = 'Toggle Neotree', silent =
 map('n', '<leader>o', ':Neotree focus<CR>', { desc = 'Focus Neotree', silent = true })
 
 -- Telescope/search mappings
-local telescope = require('telescope.builtin')
+local telescope = require 'telescope.builtin'
 map('n', '<leader>fh', telescope.help_tags, { desc = 'Search Help' })
 map('n', '<leader>fk', telescope.keymaps, { desc = 'Search Keymaps' })
 map('n', '<leader>ff', telescope.find_files, { desc = 'Search Files' })
@@ -49,23 +49,28 @@ map('n', '<leader>cs', telescope.lsp_document_symbols, { desc = 'Document Symbol
 map('n', '<leader>cR', vim.lsp.buf.rename, { desc = 'Rename' })
 map('n', '<leader>ca', vim.lsp.buf.code_action, { desc = 'Code Action' })
 
-map('n', '<A-p>', function() vim.diagnostic.jump({ count = 1, float = true }) end, { desc = 'Next Diagnostic' })
+map('n', '<A-p>', function() vim.diagnostic.jump { count = 1, float = true } end, { desc = 'Next Diagnostic' })
 
-map('n', '<A-o>', function() vim.diagnostic.jump({ count = -1, float = true }) end, { desc = 'Prev Diagnostic' })
+map('n', '<A-o>', function() vim.diagnostic.jump { count = -1, float = true } end, { desc = 'Prev Diagnostic' })
 
 map('n', '<leader>cq', vim.diagnostic.setloclist, { desc = 'Quickfix Diagnostics' })
 map('n', 'K', vim.lsp.buf.hover, { desc = 'Hover Documentation' })
+
+-- Friendly snippets
+
+local ls = require 'luasnip'
+map('i', '<C-CR>', function() ls.expand() end, { desc = 'Expand snippet' })
 
 -- Formatting
 map(
 	{ 'n', 'v' },
 	'<leader>cf',
 	function()
-		require('conform').format({
+		require('conform').format {
 			lsp_fallback = true,
 			async = false,
 			timeout_ms = 500,
-		})
+		}
 	end,
 	{ desc = 'Format file or selection', silent = true }
 )
@@ -88,4 +93,5 @@ map(
 	'<cmd>lua vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())<CR>',
 	{ desc = 'Toggle inlay hints' }
 )
+
 map('n', '<leader>uw', '<cmd>set wrap!<CR>', { desc = 'Set wrap' })
