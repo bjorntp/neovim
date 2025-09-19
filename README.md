@@ -23,26 +23,24 @@ LSP requires manual installation of the following installation of:
 Install of them on Arch (requires yay)
 
 ```
-# Official repos
 sudo pacman -S --needed --noconfirm \
   lua-language-server \
   clang \
-  jdtls \
   rust-analyzer \
   haskell-language-server \
-  nil \
   nodejs \
   npm \
   cargo \
   pyright \
   typescript \
   typescript-language-server \
-  tailwindcss/language-server \
+  tailwindcss-language-server \
   yaml-language-server \
   bash-language-server
 
-# AUR packages via yay
 yay -S --needed --noconfirm \
+  jdtls \
+  nil \
   tinymist-git \
   vscode-langservers-extracted \
   dockerfile-language-server
@@ -60,19 +58,17 @@ And for the formatters used are
 - clang_format
 
 ```
-# Official repos
 sudo pacman -S --needed --noconfirm \
   stylua \
   prettier \
-  google-java-format \
   ktlint \
-  rustfmt \
   clang
 
-# AUR
 yay -S --needed --noconfirm \
-    prettierd \
-    google-java-format \
-    yamlfix \
-    beautysh
+  google-java-format \
+  rustfmt \
+  prettierd \
+  google-java-format \
+  yamlfix \
+  beautysh
 ```
