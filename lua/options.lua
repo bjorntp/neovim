@@ -46,3 +46,6 @@ vim.opt.swapfile = false
 vim.lsp.inlay_hint.enable(true)
 
 vim.opt.termguicolors = true
+
+-- Floating window
+vim.opt.winborder = 'rounded'

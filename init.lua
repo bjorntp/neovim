@@ -18,6 +18,7 @@ vim.pack.add {
 	{ src = 'https://github.com/ellisonleao/gruvbox.nvim' },
 	{ src = 'https://github.com/nvim-lualine/lualine.nvim' },
 	{ src = 'https://github.com/akinsho/bufferline.nvim' },
+	{ src = 'https://github.com/lukas-reineke/indent-blankline.nvim' },
 
 	-- Dependencies
 	{ src = 'https://github.com/rafamadriz/friendly-snippets' },
@@ -67,10 +68,10 @@ vim.lsp.config('ts_ls', {
 	cmd = { 'typescript-language-server', '--stdio' },
 	settings = {
 		typescript = {
-			inlayHints = { inlayHintsSettings },
+			inlayHints = inlayHintsSettings,
 		},
 		javascript = {
-			inlayHints = { inlayHintsSettings },
+			inlayHints = inlayHintsSettings,
 		},
 	},
 })
@@ -79,10 +80,10 @@ require('conform').setup {
 	formatters_by_ft = {
 		lua = { 'stylua' },
 		svelte = { 'prettierd', 'prettier' },
-		javascript = { 'prettierd', 'prettier' },
-		typescript = { 'prettierd', 'prettier' },
-		javascriptreact = { 'prettierd', 'prettier' },
-		typescriptreact = { 'prettierd', 'prettier' },
+		javascript = { 'eslint_d' },
+		typescript = { 'eslint_d' },
+		javascriptreact = { 'eslint_d' },
+		typescriptreact = { 'eslint_d' },
 		json = { 'prettierd', 'prettier' },
 		graphql = { 'prettierd', 'prettier' },
 		java = { 'google-java-format' },
@@ -95,7 +96,14 @@ require('conform').setup {
 		scss = { 'prettierd', 'prettier' },
 		c = { 'clang_format' },
 		cpp = { 'clang_format' },
-		typst = { 'typstfmt' },
+		typst = { 'typstyle' },
+	},
+
+	formatters = {
+		typstyle = {
+			command = 'typstyle',
+			stdin = true,
+		},
 	},
 
 	format_on_save = {
@@ -169,6 +177,8 @@ require('nvim-treesitter.configs').setup {
 		enable_autocmd = false,
 	},
 }
+
+require('ibl').setup {}
 require('nvim-ts-autotag').setup {}
 require('bufferline').setup {
 	options = {
