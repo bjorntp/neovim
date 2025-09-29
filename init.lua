@@ -1,3 +1,4 @@
+---@diagnostic disable: undefined-global
 vim.pack.add {
 	{ src = 'https://github.com/windwp/nvim-ts-autotag' },
 	{ src = 'https://github.com/kylechui/nvim-surround' },

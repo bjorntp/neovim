@@ -1,3 +1,4 @@
+---@diagnostic disable: undefined-global
 local map = vim.keymap.set
 
 -- Space as leader
@@ -90,6 +91,14 @@ map('n', '<leader>ut', function()
 		vim.o.showtabline = 2
 	end
 end, { desc = 'Toggle tab line' })
+
+map('n', '<leader>ul', function()
+	if vim.o.relativenumber then
+		vim.o.relativenumber = false
+	else
+		vim.opt.relativenumber = true
+	end
+end, { desc = 'Toggle relative number' })
 
 map(
 	'n',
