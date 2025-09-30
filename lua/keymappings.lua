@@ -99,3 +99,5 @@ map(
 )
 
 map('n', '<leader>uw', '<cmd>set wrap!<CR>', { desc = 'Set wrap' })
+
+map({ 'n', 'v' }, 's', '<Plug>(leap-anywhere)')

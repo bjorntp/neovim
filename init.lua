@@ -19,6 +19,7 @@ vim.pack.add {
 	{ src = 'https://github.com/nvim-lualine/lualine.nvim' },
 	{ src = 'https://github.com/akinsho/bufferline.nvim' },
 	{ src = 'https://github.com/lukas-reineke/indent-blankline.nvim' },
+	{ src = 'https://github.com/ggandor/leap.nvim' },
 
 	-- Dependencies
 	{ src = 'https://github.com/rafamadriz/friendly-snippets' },
@@ -141,6 +142,8 @@ require('neo-tree').setup {
 		},
 	},
 }
+
+require('leap').setup {}
 
 require('nvim-surround').setup {}
 require('nvim-autopairs').setup {}
